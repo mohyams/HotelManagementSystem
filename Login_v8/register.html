@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: 250px;
+    margin-bottom: 30px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.popup .hide {
+    visibility:hidden;
+    -webkit-animation: fadeIn 0s;
+    animation: fadeIn 0s;
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+</style>
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+    <script>
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    setTimeout(hide,2000);
+}
+</script>
+    <script>
+        function hide(){
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("hide");
+        }
+        function time()
+        {
+          document.getElementById('submit').disabled = false;  
+        }
+        function check_pass() {
+    if (document.getElementById('Pass1').value ==
+            document.getElementById('Pass2').value) {
+        document.getElementById('submit').disabled = false;
+    } else {
+        document.getElementById('submit').disabled = true;
+        myFunction();
+    }
+}
+    </script>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post" action="register.php">
+					<span class="login100-form-title">
+						SIGN UP
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Username">
+						<input id="username" class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100"></span>
+					</div>
+                    
+                    <div class="wrap-input100 validate-input " data-validate = "Please enter Phone No">
+						<input id="Phone" class="input100" type="text" name="Phone" placeholder="Phone No">
+						<span class="focus-input100"></span>
+					</div>
+                    
+                    <br>
+
+					<div class="wrap-input100 validate-input " data-validate = "Please Enter Birth Date">
+						<input id="Birthdate" class="input100" type="date" name="Birthdate" placeholder="Birthdate">
+						<span class="focus-input100"></span>
+					</div>
+                    
+                    <br>
+                    
+                    <div class="wrap-input100 validate-input " data-validate = "Please enter Password">
+						<input id="Pass1" class="input100" type="password" name="Pass1" placeholder="Password" onclick="time()">
+						<span class="focus-input100"></span>
+					</div>
+                    
+                    <br>
+                    
+                    <div class="wrap-input100 validate-input " data-validate = "Confirm password">
+						<input id="Pass2" class="input100" type="password" name="Pass2" placeholder="Confirm Password" onclick="time()">
+                        <span class="focus-input100"></span>
+                    </div>
+                        
+                    <div class="popup">
+                        <span class="popuptext" id="myPopup">Password Not Matching !</span>
+                        
+                    </div>
+                        
+                    
+                    <br>
+
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" id="submit" onclick="check_pass()"> 
+							Register
+                            
+
+						</button>
+					</div>
+                    
+                    <br>
+                    <br>
+
+				
+				</form>
+			</div>
+		</div>
+	</div>
+	
+    
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
